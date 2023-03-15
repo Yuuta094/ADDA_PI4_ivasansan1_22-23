@@ -1,0 +1,23 @@
+head section
+
+Integer getNumTipos()
+Integer getNumVariedades()
+Integer getKgTipo(Integer j)
+Integer getBeneficioVariedad(Integer i)
+Double getKgTipoVariedad(Integer i, Integer j)
+Integer n = getNumTipos()
+Integer m = getNumVariedades()
+
+goal section
+
+// Objetivo: maximizar el beneficio obtenido
+max sum(getBeneficioVariedad(i) x[i], i in 0 .. m)
+
+constraints section
+
+// Para cada tipo de café,
+//no se puede superar la cantidad de kilos disponibles
+sum(getKgTipoVariedad(j,i) x[i], i in 0 .. m)<= getKgTipo(j), j in 0 .. n
+
+int
+x[i], i in 0 .. m
