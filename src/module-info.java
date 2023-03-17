@@ -11,7 +11,7 @@ module PI4 {
 	
 	exports _datos;
 	exports _soluciones;
-	exports Ejercicio1;
+	exports ejercicio1;
 	//exports ejemplo2;
 	//exports ejemplo3;
 }

@@ -1,4 +1,4 @@
-package Ejercicio1;
+package ejercicio1;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,7 +10,7 @@ import us.lsi.gurobi.GurobiLp;
 import us.lsi.gurobi.GurobiSolution;
 import us.lsi.solve.AuxGrammar;
 
-public class ejercicio1PLE {
+public class Ejercicio1PLE {
 
 	public static List<Integer> tipos;
 	public static List<Variedad> variedades;
@@ -43,7 +43,7 @@ public class ejercicio1PLE {
 
 			// si cambia el fichero de datos de entrada, cambiar tambien el nº del .lp para
 			// no sobreescribirlo
-			AuxGrammar.generate(ejercicio1PLE.class, "lsi_models/Ejercicio1.lsi", "gurobi_models/ejercicio1.lp");
+			AuxGrammar.generate(Ejercicio1PLE.class, "lsi_models/Ejercicio1.lsi", "gurobi_models/ejercicio1.lp");
 			GurobiSolution solution = GurobiLp.gurobi("gurobi_models/ejercicio1.lp");
 			Locale.setDefault(new Locale("en", "US"));
 			System.out.println(solution.toString((s, d) -> d > 0.));
