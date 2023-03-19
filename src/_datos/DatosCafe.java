@@ -50,6 +50,8 @@ public class DatosCafe {
 		toConsole();
 	}
 
+	// ------------------------------------------------------------------------------------------\\
+
 	// Double getKgTipoVariedad(Integer i, Integer j)
 	public static Integer getNumTipos() {
 		return tipos.size();
@@ -83,6 +85,7 @@ public class DatosCafe {
 		listaMax.sort(Comparator.naturalOrder());
 		return listaMax.get(0).intValue();
 	}
+	// ------------------------------------------------------------------------------------------\\
 
 	private static void toConsole() {
 		System.out.println("Kgs disponibles de cada tipo: " + tipos + "\nVariedades disponibles: " + variedades);
@@ -96,5 +99,5 @@ public class DatosCafe {
 			System.out.println("\n\n");
 		}
 	}
-
+ 
 }

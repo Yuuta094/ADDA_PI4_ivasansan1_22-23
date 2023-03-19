@@ -3,7 +3,6 @@ package ejercicio1;
 import java.util.List;
 
 import _datos.DatosCafe;
-import _datos.DatosSubconjunto;
 import _soluciones.SolucionCafe;
 import us.lsi.ag.ValuesInRangeData;
 import us.lsi.ag.agchromosomes.ChromosomeFactory.ChromosomeType;

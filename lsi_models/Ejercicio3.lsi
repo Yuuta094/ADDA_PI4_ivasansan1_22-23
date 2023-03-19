@@ -1,0 +1,44 @@
+head section
+
+Integer getNumInvestigadores()
+Integer getNumEspecialidades()
+Integer getNumTrabajos()
+Integer trabajadorEspecialidad(Integer i, Integer k)
+Integer diasDisponibles(Integer i)
+Integer diasNecesarios(Integer j, Integer k)
+Integer getCalidad(Integer j)
+Integer getMM()
+
+Integer n = getNumInvestigadores()
+Integer e = getNumEspecialidades()
+Integer m = getNumTrabajos()
+Integer MM = getMM()
+
+goal section
+
+	// Objetivo: máximizar la calidad de los trabajos 
+max sum(getCalidad(j) y[j], j in 0 .. m)
+
+constraints section
+
+	// Para cada investigador, la suma de las horas realizadas en
+	// cada trabajo no puede exceder las horas disponibles de
+	//dicho investigador
+sum(x[i,j], j in 0 .. m) <= diasDisponibles(i), i in 0 .. n
+	
+	// Para cada especialidad en cada trabajo,
+	//la suma de las horas realizadas por cada investigador
+	// con la especialidad indicada debe ser igual a las horas necesarias
+sum(trabajadorEspecialidad(i,k) x[i,j], i in 0 .. n)- diasNecesarios(j,k) y[j] = 0, j in 0 .. m, k in 0 .. e
+
+	// Para cada ivestigador en cada trabajo, si el trabajo j
+	//no se realiza, las horas realizadas en j serán 0
+x[i,j] - MM y[j] <= 0, j in 0 .. m, i in 0 .. n
+
+bounds section
+	// Imponemos que y que era
+	//int solo pueda tomar los valores '0' o '1'
+y[j] <= 1, j in 0 .. m
+
+int
+x[i,j], i in 0 .. n, j in 0 .. m y[j], j in 0 .. m

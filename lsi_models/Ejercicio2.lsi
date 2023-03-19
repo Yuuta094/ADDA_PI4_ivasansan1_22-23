@@ -1,0 +1,37 @@
+head section
+
+Integer getNumCursos()
+Integer getNumCentros()
+Integer getNumTematicas()
+Integer getMaxCentros()
+Double getPrecioCurso(Integer i)
+Integer contieneTematica(Integer i, Integer j)
+Integer ofreceCurso(Integer i, Integer k)
+
+Integer n = getNumCursos()
+Integer m = getNumTematicas()
+Integer nc = getNumCentros()
+Integer maxCentros = getMaxCentros()
+
+goal section
+
+	// Obetivo: minimzar el precio de los cursos seleccionados
+min sum(getPrecioCurso(i) x[i], i in 0 .. n)
+
+
+constraints section
+
+	// Cada temática se tiene que seleccionar al menos una vez
+sum(contieneTematica(i,j) x[i], i in 0 .. n) >= 1, j in 0 .. m
+	
+	// No se puede superar el número máximo de centros permitidos
+sum(y[k], k in 0 .. nc) <= maxCentros
+	
+	// Para cada centro de cada curso, si se selecciona un curso
+	//de dicho centro, se selecciona también el centro
+ofreceCurso(i,k) x[i] - y[k] <= 0, i in 0 .. n, k in 0 .. nc
+
+
+bin
+x[i], i in 0 .. n
+y[k], k in 0 .. nc

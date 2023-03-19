@@ -1,15 +1,15 @@
-package ejercicio1;
+package ejercicio3;
 
 import java.util.List;
 import java.util.Locale;
 
-import _soluciones.SolucionCafe;
+import _soluciones.SolucionInvestigadores;
 import us.lsi.ag.agchromosomes.AlgoritmoAG;
 import us.lsi.ag.agstopping.StoppingConditionFactory;
 
-public class TestCafeGRange { 
-
+public class TestInvestigadoresRange {
 	public static void main(String[] args) {
+		
 		Locale.setDefault(new Locale("en", "US"));
 		
 		AlgoritmoAG.ELITISM_RATE = 0.10;
@@ -19,14 +19,11 @@ public class TestCafeGRange {
 		StoppingConditionFactory.NUM_GENERATIONS = 1000;
 		StoppingConditionFactory.stoppingConditionType = StoppingConditionFactory.StoppingConditionType.GenerationCount;
 		
-		
 		for (int i = 0; i < 3; i++) {
-			InRangeCafeAG p = new InRangeCafeAG("ficheros/Ejercicio1DatosEntrada" + (i + 1) + ".txt");
-			AlgoritmoAG<List<Integer>, SolucionCafe> ap = AlgoritmoAG.of(p);
+			InRangeInvestigadoresAG p = new InRangeInvestigadoresAG(
+					"ficheros/Ejercicio3DatosEntrada" + (i + 1) + ".txt");
+			AlgoritmoAG<List<Integer>, SolucionInvestigadores> ap = AlgoritmoAG.of(p);
 			ap.ejecuta();
-			
-			
-			
 			System.out.println("================================");
 			System.out.println(ap.bestSolution());
 			System.out.println("================================\n");

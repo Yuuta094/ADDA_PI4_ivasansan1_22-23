@@ -22,7 +22,7 @@ public class SolucionCafe {
 		soluciones = new ArrayList<>();
 		solucion = new ArrayList<>();
 	}
-
+  
 	private SolucionCafe(List<Integer> ls) {
 		beneficio = 0.;
 		soluciones = new ArrayList<>();

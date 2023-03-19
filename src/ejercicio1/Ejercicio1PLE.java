@@ -15,6 +15,9 @@ public class Ejercicio1PLE {
 	public static List<Integer> tipos;
 	public static List<Variedad> variedades;
 
+	
+	// ------------------------------------------------------------------------------------------\\
+
 	public static Integer getNumTipos() {
 		return tipos.size();
 	}
@@ -35,7 +38,10 @@ public class Ejercicio1PLE {
 		return variedades.get(i).composicion().get(j);
 	}
 
+	// ------------------------------------------------------------------------------------------\\
+
 	public static void Ejercicio1_model() throws IOException {
+		
 		for (int i = 0; i < 3; i++) {
 			DatosCafe.iniDatos("ficheros/Ejercicio1DatosEntrada" + (i + 1) + ".txt");
 			tipos = DatosCafe.tipos;
@@ -52,6 +58,7 @@ public class Ejercicio1PLE {
 
 	public static void main(String[] args) throws IOException {
 		Ejercicio1_model();
+		System.out.println(variedades.size());
 
 	}
 
